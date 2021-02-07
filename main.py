@@ -12,7 +12,7 @@ REQUEST_KWARGS={
         'password': '',
     }
 }
-bot_token = 'Your Token Bot'
+bot_token = '1599067249:AAGePLKVmKWlM7_CRYuMpx5fBxCIDR-qUwk'
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 GET_PHOTO, CHOOSE_EFFECT = range(2)
@@ -30,7 +30,7 @@ def switcher(choosed_effect, img_addr, uid):
     }
 
 def just_little_helper(bot, update):
-    update.message.reply_text('Send Photo Dude')
+    update.message.reply_text('Mənə bir şəkil göndər 😲')
     return GET_PHOTO
 
 def get_photo(bot, update):
@@ -39,7 +39,7 @@ def get_photo(bot, update):
     photo_file = bot.get_file(update.message.photo[-1].file_id)
     photo_file.download('{}.jpg'.format(chat_id))
     logger.info('Get photo from user')
-    update.message.reply_text('OKAY, Sexy.\nNow Choose an effect number to make your image.\n1: black and white\n2: gaussian blur\n3: sobel filter\n4: cartoon effect\n5: edges effect')
+    update.message.reply_text('AHA, Sexy.\nNow Choose an effect number to make your image.\n1: black and white\n2: gaussian blur\n3: sobel filter\n4: cartoon effect\n5: edges effect')
 
     return CHOOSE_EFFECT
 
@@ -56,11 +56,11 @@ def choose_effect(bot, update):
 
 def start(bot, update):
     user = update.message.from_user
-    update.message.reply_text('Start button pushed!')
+    update.message.reply_text('Start butonu pushed!')
 
 def cancel(bot, update):
     user = user.message.from_user
-    update.message.reply_text('Hope to see ya again.')
+    update.message.reply_text('Hope to görməy ya again.')
     return ConversationHandler.END
 
 updater.dispatcher.add_handler(CommandHandler('start', start))
